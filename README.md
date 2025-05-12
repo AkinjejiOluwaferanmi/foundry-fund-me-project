@@ -247,3 +247,8 @@ So, then you have two options:
 2. It downloads from the official release cycle `chainlink/contracts` use (npm) and packages it nicely for digestion from foundry.
 
 # Thank you
+
+If you appreciated this, feel free to follow me!
+
+[![Oluwaferanmi Akinjeji Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/feranmiakinjeji)
+[![Oluwaferanmi Akinjeji Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oluwaferanmi-akinjeji)
