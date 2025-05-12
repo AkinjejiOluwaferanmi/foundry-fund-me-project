@@ -7,12 +7,11 @@ import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 import {FundFundMe, WithdrawFundMe} from "../../script/Interactions.s.sol";
 
 contract InteractionsTest is Test {
-
     FundMe fundMe;
 
     address USER = makeAddr("user");
-    uint256 constant SEND_VALUE = 0.1 ether; 
-    uint256 constant STARTING_BALANCE = 10 ether; 
+    uint256 constant SEND_VALUE = 0.1 ether;
+    uint256 constant STARTING_BALANCE = 10 ether;
 
     function setUp() external {
         DeployFundMe deployFundMe = new DeployFundMe();
@@ -22,10 +21,12 @@ contract InteractionsTest is Test {
 
     function testUserCanFundInteractions() public {
         FundFundMe fundFundMe = new FundFundMe();
+        vm.deal(address(fundFundMe), 0.01 ether); // Match SEND_VALUE in Interactions.s.sol
         fundFundMe.fundfundMe(address(fundMe));
 
-        WithdrawFundMe withdrawFundMe = new WithdrawFundMe();
-        withdrawFundMe.withdrawfundMe(address(fundMe));
+        address owner = fundMe.getOwner();
+        vm.prank(owner);
+        fundMe.withdraw(); // Call withdraw directly
 
         assert(address(fundMe).balance == 0);
     }

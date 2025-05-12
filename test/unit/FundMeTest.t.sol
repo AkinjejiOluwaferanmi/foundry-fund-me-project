@@ -6,7 +6,6 @@ import {FundMe} from "../../src/FundMe.sol";
 import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 
 contract FundMeTest is Test {
-
     FundMe fundMe;
 
     address USER = makeAddr("user");
@@ -27,7 +26,7 @@ contract FundMeTest is Test {
         assertEq(fundMe.getOwner(), msg.sender);
     }
 
-    function testPriceFeedVersionIsAccurate() public view{
+    function testPriceFeedVersionIsAccurate() public view {
         if (block.chainid == 11155111) {
             uint256 version = fundMe.getVersion();
             assertEq(version, 4);
@@ -35,7 +34,7 @@ contract FundMeTest is Test {
             uint256 version = fundMe.getVersion();
             assertEq(version, 6);
         }
-    }  
+    }
 
     function testFundFailIfNotEnoughEth() public {
         vm.expectRevert();
@@ -82,8 +81,8 @@ contract FundMeTest is Test {
     }
 
     function testWithdrawFromMultipleFunders() public funded {
-        uint160 numberOfFunders = 10; 
-        uint160 startingFundersIndex = 1; 
+        uint160 numberOfFunders = 10;
+        uint160 startingFundersIndex = 1;
         for (uint160 i = startingFundersIndex; i < numberOfFunders; i++) {
             hoax(address(i), SEND_VALUE); // Create a new address and send SEND_VALUE to it\
             fundMe.fund{value: SEND_VALUE}();
@@ -99,11 +98,10 @@ contract FundMeTest is Test {
         assert(address(fundMe).balance == 0);
         assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
     }
-    
 
     function testWithdrawFromMultipleFundersCheaper() public funded {
-        uint160 numberOfFunders = 10; 
-        uint160 startingFundersIndex = 1; 
+        uint160 numberOfFunders = 10;
+        uint160 startingFundersIndex = 1;
         for (uint160 i = startingFundersIndex; i < numberOfFunders; i++) {
             hoax(address(i), SEND_VALUE); // Create a new address and send SEND_VALUE to it\
             fundMe.fund{value: SEND_VALUE}();
