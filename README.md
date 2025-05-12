@@ -50,7 +50,7 @@ This project is a decentralized crowdfunding platform built with **Solidity** an
 ## Quickstart
 
 ```
-git clone https://github.com/Cyfrin/foundry-fund-me-cu
+git clone https://github.com/AkinjejiOluwaferanmi/foundry-fund-me-project
 cd foundry-fund-me-cu
 make
 ```
