@@ -1,66 +1,39 @@
-## Foundry
+#  FundMe Smart Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This project is a decentralized crowdfunding platform built with **Solidity** and powered by the **Foundry** framework. Users can fund the contract with ETH, and only the contract owner can withdraw the funds. It is inspired by real-world dApps and designed to help me deepen my understanding of smart contracts, oracles, and Foundry scripting/testing workflows.
 
-Foundry consists of:
+---
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+##  Project Goals
 
-## Documentation
+- Learn **Foundry** deeply through scripting, testing, and deployment
+- Understand **Chainlink Price Feeds** for ETH/USD conversion
+- Build a secure, gas-optimized **FundMe** contract
+- Implement testing best practices using **Foundry's testing framework**
+- Practice ownership and access control in Solidity
 
-https://book.getfoundry.sh/
+---
 
-## Usage
+##  Tech Stack
 
-### Build
+| Tool/Tech | Description |
+|----------|-------------|
+| **Solidity** | Smart contract programming language |
+| **Foundry** | Ethereum development toolchain (testing, deploying, scripting) |
+| **Chainlink** | Used for real-time ETH/USD price data |
+| **VS Code** | Main IDE |
+| **Git** | Version control |
+| **Remix IDE** | Initially used for testing basic logic before migrating to Foundry |
 
-```shell
-$ forge build
-```
+---
 
-### Test
+## 📜 Features
 
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- ✅ Accept ETH funding from any user
+- ✅ Get real-time ETH/USD value via Chainlink oracles
+- ✅ Owner-only withdrawal pattern
+- ✅ Tracks funders and their contributions
+- ✅ Gas-efficient coding patterns
+- ✅ Full testing coverage using `forge test`
+- ✅ Script deployment using `forge script`
+- ✅ Contract interaction using `cast`
